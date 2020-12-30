@@ -1,4 +1,4 @@
-package com.practice.spring.security.controller;
+package com.practice.spring.security.web;
 
 import com.practice.spring.security.model.User;
 import com.practice.spring.security.service.UserAuthenticationService;
