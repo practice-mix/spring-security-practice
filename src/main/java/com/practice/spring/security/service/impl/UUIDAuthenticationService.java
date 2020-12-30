@@ -1,6 +1,8 @@
-package com.practice.spring.security.service;
+package com.practice.spring.security.service.impl;
 
 import com.practice.spring.security.model.User;
+import com.practice.spring.security.service.UserAuthenticationService;
+import com.practice.spring.security.service.UserCrudService;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;

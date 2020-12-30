@@ -1,6 +1,7 @@
-package com.practice.spring.security.service;
+package com.practice.spring.security.service.impl;
 
 import com.practice.spring.security.model.User;
+import com.practice.spring.security.service.UserCrudService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
