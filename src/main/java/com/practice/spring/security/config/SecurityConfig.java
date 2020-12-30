@@ -102,7 +102,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
   }
 
   @Bean
-  AuthenticationEntryPoint forbiddenEntryPoint() {
+  public AuthenticationEntryPoint forbiddenEntryPoint() {
     return new HttpStatusEntryPoint(FORBIDDEN);
   }
 }
