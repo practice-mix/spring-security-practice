@@ -77,7 +77,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
   }
 
   @Bean
-  TokenAuthenticationFilter restAuthenticationFilter() throws Exception {
+  public TokenAuthenticationFilter restAuthenticationFilter() throws Exception {
     final TokenAuthenticationFilter filter = new TokenAuthenticationFilter(PROTECTED_URLS);
     filter.setAuthenticationManager(authenticationManager());
     filter.setAuthenticationSuccessHandler(successHandler());
@@ -85,7 +85,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
   }
 
   @Bean
-  SimpleUrlAuthenticationSuccessHandler successHandler() {
+  public SimpleUrlAuthenticationSuccessHandler successHandler() {
     final SimpleUrlAuthenticationSuccessHandler successHandler = new SimpleUrlAuthenticationSuccessHandler();
     successHandler.setRedirectStrategy(new NoRedirectStrategy());
     return successHandler;
@@ -95,7 +95,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
    * Disable Spring boot automatic filter registration.
    */
   @Bean
-  FilterRegistrationBean disableAutoRegistration(final TokenAuthenticationFilter filter) {
+  public FilterRegistrationBean disableAutoRegistration(final TokenAuthenticationFilter filter) {
     final FilterRegistrationBean registration = new FilterRegistrationBean(filter);
     registration.setEnabled(false);
     return registration;
