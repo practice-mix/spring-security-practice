@@ -1,5 +1,6 @@
-package com.practice.spring.security.service;
+package com.practice.spring.security.config.component;
 
+import com.practice.spring.security.service.UserAuthenticationService;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;

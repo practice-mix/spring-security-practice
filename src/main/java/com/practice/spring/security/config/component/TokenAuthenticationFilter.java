@@ -1,4 +1,4 @@
-package com.practice.spring.security.service;
+package com.practice.spring.security.config.component;
 
 import lombok.experimental.FieldDefaults;
 import org.springframework.security.authentication.BadCredentialsException;

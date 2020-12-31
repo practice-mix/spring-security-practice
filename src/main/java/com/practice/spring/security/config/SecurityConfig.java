@@ -1,7 +1,7 @@
 package com.practice.spring.security.config;
 
-import com.practice.spring.security.service.TokenAuthenticationFilter;
-import com.practice.spring.security.service.TokenAuthenticationProvider;
+import com.practice.spring.security.config.component.TokenAuthenticationFilter;
+import com.practice.spring.security.config.component.TokenAuthenticationProvider;
 import lombok.experimental.FieldDefaults;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
