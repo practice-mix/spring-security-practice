@@ -83,14 +83,6 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     filter.setAuthenticationSuccessHandler(successHandler());
     return filter;
   }
-
-  @Bean
-  public SimpleUrlAuthenticationSuccessHandler successHandler() {
-    final SimpleUrlAuthenticationSuccessHandler successHandler = new SimpleUrlAuthenticationSuccessHandler();
-    successHandler.setRedirectStrategy(new NoRedirectStrategy());
-    return successHandler;
-  }
-
   /**
    * Disable Spring boot automatic filter registration.
    */
@@ -100,6 +92,14 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     registration.setEnabled(false);
     return registration;
   }
+
+  @Bean
+  public SimpleUrlAuthenticationSuccessHandler successHandler() {
+    final SimpleUrlAuthenticationSuccessHandler successHandler = new SimpleUrlAuthenticationSuccessHandler();
+    successHandler.setRedirectStrategy(new NoRedirectStrategy());
+    return successHandler;
+  }
+
 
   @Bean
   public AuthenticationEntryPoint forbiddenEntryPoint() {
