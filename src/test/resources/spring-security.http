@@ -1,17 +1,13 @@
-# curl -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ...' http://localhost:8081/users/logout
-GET http://localhost:8081/users/logout
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ...
-
 ###
+# curl -XPOST -d 'username=john&password=smith' http://localhost:8081/public/users/register
+POST http://localhost:8081/public/users/register
+Content-Type: application/x-www-form-urlencoded
 
+username=john&password=smith
 
-###
-
-# curl -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ...' http://localhost:8081/users/current
-GET http://localhost:8081/users/current
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAAAKtWyiwuVrJSyk8uyS9ILUpT0lHKTCxRsjI0M7A0sjQyN7XQUUqtKIAIGJtbGoIESotTi_ISc1OB-rLyM_KUagEjfZ_ZRgAAAA.gXmlnVPN5Tb9-P4uJs_BhRN-8AfF7aKogWJ_RC2Pens
-
-
+> {%
+    client.global.set("auth_token", response.body.token);
+%}
 
 ###
 # curl -XPOST -d 'username=john&password=smith' http://localhost:8081/public/users/login
@@ -20,14 +16,29 @@ Content-Type: application/x-www-form-urlencoded
 
 username=john&password=smith
 
+> {%
+    client.global.set("auth_token", response.body);
+%}
+###
+
+# curl -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ...' http://localhost:8081/users/current
+GET http://localhost:8081/users/current
+#Authorization: Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAAAKtWyiwuVrJSyk8uyS9ILUpT0lHKTCxRsjI0M7A0sjQyN7XQUUqtKIAIGJtbGoIESotTi_ISc1OB-rLyM_KUagEjfZ_ZRgAAAA.gXmlnVPN5Tb9-P4uJs_BhRN-8AfF7aKogWJ_RC2Pens
+Authorization: Bearer {{auth_token}}
+
+###
+# curl -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ...' http://localhost:8081/users/logout
+GET http://localhost:8081/users/logout
+#Authorization: Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ...
+Authorization: Bearer {{auth_token}}
 
 ###
 
-# curl -XPOST -d 'username=john&password=smith' http://localhost:8081/public/users/register
-POST http://localhost:8081/public/users/register
-Content-Type: application/x-www-form-urlencoded
 
-username=john&password=smith
+
+
+
+
 
 ###
 
