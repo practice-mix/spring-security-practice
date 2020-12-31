@@ -6,7 +6,7 @@ Content-Type: application/x-www-form-urlencoded
 username=john&password=smith
 
 > {%
-    client.global.set("auth_token", response.body.token);
+    client.global.set("auth_token", response.body);
 %}
 
 ###
